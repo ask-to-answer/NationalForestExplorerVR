@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class PlayerContorller : MonoBehaviour
@@ -8,9 +9,12 @@ public class PlayerContorller : MonoBehaviour
     public float jumpSpeed = 8.0F;
     public float gravity = 20.0F;
     private Vector3 moveDirection = Vector3.zero;
+
     void Update()
     {
+        Camera cam = GameObject.Find("Camera").GetComponent<Camera>();
         CharacterController controller = GetComponent<CharacterController>();
+        transform.localRotation = cam.transform.localRotation;
         if (controller.isGrounded)
         {
             moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
