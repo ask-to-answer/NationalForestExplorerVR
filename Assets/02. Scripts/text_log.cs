@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 [System.Serializable]
 public class Dialogue
 {
@@ -52,7 +53,6 @@ public class text_log : MonoBehaviour
     }
     private void Start()
     {
-        gameObject.SetActive(false);
         button_1.gameObject.SetActive(false);
         button_2.gameObject.SetActive(false);
         button_3.gameObject.SetActive(false);
@@ -68,7 +68,6 @@ public class text_log : MonoBehaviour
     }
     public void talk_npc()
     {
-        gameObject.SetActive(true);
         button_1.gameObject.SetActive(true);
         button_2.gameObject.SetActive(true);
         button_3.gameObject.SetActive(true);
@@ -82,7 +81,10 @@ public class text_log : MonoBehaviour
         count++;
     }
 
-
+    void OnTriggerEnter(Collider target)
+    {
+        UnityEngine.Debug.Log("check");
+    }
 
     void Update()
     {
@@ -93,12 +95,13 @@ public class text_log : MonoBehaviour
         }
         else if (npc_talk_int == 2)
         {
-            gameObject.SetActive(false);
+
             button_1.gameObject.SetActive(false);
             button_2.gameObject.SetActive(false);
             button_3.gameObject.SetActive(false);
             justOne = false;
         }
+
         // count 가 12면 선택지 대화 진행중이라 막아 둔다.
         if (isDialogue && count != 12)
         {
