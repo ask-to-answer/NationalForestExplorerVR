@@ -53,6 +53,7 @@ public class text_log : MonoBehaviour
     }
     private void Start()
     {
+        this.gameObject.SetActive(false);
         button_1.gameObject.SetActive(false);
         button_2.gameObject.SetActive(false);
         button_3.gameObject.SetActive(false);
@@ -81,10 +82,7 @@ public class text_log : MonoBehaviour
         count++;
     }
 
-    void OnTriggerEnter(Collider target)
-    {
-        UnityEngine.Debug.Log("check");
-    }
+
 
     void Update()
     {
@@ -95,7 +93,6 @@ public class text_log : MonoBehaviour
         }
         else if (npc_talk_int == 2)
         {
-
             button_1.gameObject.SetActive(false);
             button_2.gameObject.SetActive(false);
             button_3.gameObject.SetActive(false);
