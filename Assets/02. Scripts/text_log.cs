@@ -86,6 +86,7 @@ public class text_log : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(npc_talk_int);
         if (npc_talk_int == 1 && justOne == false)
         {
             talk_npc();
